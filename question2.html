@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>question2</title>
+	<script>
+	  function display(){
+	    //create an xmlhttprequest
+		var xhttp = new XMLHttpRequest();
+		
+		//create a handler for the readyState change
+		xhttp.onreadystatechange = function(){
+		  readyStateChangeHandler(xhttp);
+		};
+		
+		//making query by async call
+		xhttp.open("GET","question2.JSON",true);
+		xhttp.send();
+	  }
+	  
+	  function readyStateChangeHandler(xhttp){
+	    if(xhttp.readyState==4){
+		  if(xhttp.status==200){
+		    handleStatusSuccess(xhttp);
+		  }else{
+		    handleStatusFailure(xhttp);
+		  }
+		}
+	  }
+	  
+	  function handleStatusFailure(xhttp){
+	    var displayDiv = document.getElementById("display");
+		displayDiv.innerHTML = "XMLHttpRequest failed: status " + xhttp.status;
+	  }
+	  
+	  function handleStatusSuccess(xhttp){
+	    var jsonText = xhttp.responseText;
+		var carRepo = JSON.parse(jsonText);
+		
+		displayCar(carRepo);
+	  }
+	  
+	  function displayCar(carRepo){
+	    var html = ""
+		html += '<h2 style="text-decoration:underline;">' + 'Car service repository' + '</h2>';
+		html += '<font size="4" style="font-weight:bolder;font-style:italic">' + 'Car Service Station:' + '</font>' 
+		html += '<font size="4" style="font-style:italic">' + carRepo.CarServiceStation + '</font>' + '<br/>' 
+		
+		html += '<ul style="list-style-type:none">'
+		for (var i=0; i<carRepo.carInfo.length; i++){
+		  var car = carRepo.carInfo[i];
+		  html += '<li><strong>Car Plate:</strong>' + car.Carplate + '</li>';
+		  html += '<li><strong>Model:</strong>' + car.Model + '</li>';
+		  html += '<li><strong>Year:</strong>' + car.Year + '</li>';
+		  html += '<li><strong>Service card:</strong></li>';
+		  html += '<ul style="list-style-type:disc;padding-left:100px;">';
+		  for (var j=0; j<car.Servicecard.length; j++){
+		    var sevice = car.Servicecard[j];
+		    html += '<li>'+ sevice.date + ', service ' + sevice.distance + '</li>';
+			
+		  }
+		  html += '</ul>';
+		  html += '<br/>';
+		}
+		html += '</ul>';
+		
+		
+	    var displayDiv = document.getElementById("display");
+	    displayDiv.innerHTML = html;
+	  }
+	</script>
+  </head>
+  <body>
+    <button onclick="display()">Get Car service repository</button>
+	<div id="display"></div>
+  </body>
+</html>

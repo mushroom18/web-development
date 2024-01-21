@@ -1,0 +1,43 @@
+{
+  "CarServiceStation":"Wollongong",
+  "carInfo":[
+    {
+	  "Carplate":"CL-29-28",
+	  "Model":"Nissan X-Trail",
+	  "Year":2020,
+	  "Servicecard":[
+	  {
+		"date":"15/09/2021",
+		"distance":"10000km"
+	  },
+	  {
+		"date":"21/08/2022",
+		"distance":"20000km"
+	  },
+	  {
+		"date":"15/07/2023",
+		"distance":"30000km"  
+	  }
+	 ]
+    },
+    {
+	  "Carplate":"PYU-880",
+	  "Model":"BMW 330i",
+	  "Year":2017,
+	  "Servicecard":[
+	  {
+		"date":"23/04/2019",
+		"distance":"10000km"
+	  },
+	  {
+		"date":"28/06/2020",
+		"distance":"25000km"
+	  },
+	  {
+		"date":"01/08/2022",
+		"distance":"40000km"  
+	  }
+	]
+   }
+ ]
+}
