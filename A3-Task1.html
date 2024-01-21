@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <title>A03-01</title>
+    <script>
+      
+      //create color list
+      var color_list = ["yellow", "pink", "orange", "blue"];
+      
+      //present initial number in green
+      function display_initial_number(){
+       //get initial number
+        var input1 = document.getElementById("initialnumber");
+        var initial_number = input1.value;
+        
+        //display the number
+        var display_number = document.getElementById("display");
+        //set the color to green
+        display_number.style.color = "green";
+        display_number.innerHTML = initial_number;   
+      }
+
+
+      function increase_anime(){ 
+        //get the increase_by number
+        var input2 = document.getElementById("increaseby");
+        var increase_num = Number(input2.value);
+
+        //get the current number displayed for user
+        var display_number = document.getElementById("display");
+        var current_number = Number(display_number.innerHTML);
+        final_num = current_number + increase_num;
+        
+        //get a random color
+        var i = Math.floor(Math.random()*4);
+        display_number.style.color = color_list[i];        
+		    display_number.innerHTML = final_num;         
+      }
+ 
+      //get interval time from user
+      var interval_time;
+	  function get_interval_time(){ 
+	    var input3 = document.getElementById("timeinterval"); 
+        interval_time = Number(input3.value);
+      }
+      
+
+      //start the animation
+      var startshow;
+      var flag=1;
+      function start_anime(){   
+          if(flag==1){ 
+            flag=0;
+			display_initial_number();
+	        get_interval_time();
+            startshow = setInterval(increase_anime,interval_time);
+          }  
+      }
+
+      //clear the text field
+      function clear_text_field(){
+        var clear_input1 = document.getElementById("initialnumber");
+        clear_input1.value = "";
+        var clear_input2 = document.getElementById("increaseby");
+        clear_input2.value = "";
+        var clear_input3 = document.getElementById("timeinterval");
+        clear_input3.value = "";
+      }
+      
+      
+      //stop the animation
+      function stop_anime() { 
+	      if(flag==0){
+          flag=1;
+          clearInterval(startshow);
+          clear_text_field();
+        }
+      }
+
+
+      
+    </script>
+  </head>
+  
+  <body>
+    <span>Initial number:</span>
+    <input type="text" id="initialnumber"/>
+    <br/><br/>
+    
+    <span>Increase by:</span>
+    <input type="text" id="increaseby"/>
+    <br/><br/>
+    
+    <span>time interval(every):</span>
+    <input type="text" id="timeinterval"/>
+    <span>(ms)</span>
+    <br/><br/>
+    
+    <button onclick="start_anime()">Start Slideshow</button>
+    <button onclick="stop_anime()">Stop Slideshow</button>
+    <br/><br/>
+
+    <span id="display" style="font-size: 50px;"></span>
+    
+    
+  </body>
+</html>

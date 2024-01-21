@@ -1,0 +1,58 @@
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYE cinemaList[
+   <!ELEMENT cinemaList(cinema*)>
+   <!ATTLIST cinemaList ranking CDATA #REQUIRED>
+   <!ATTLIST cinemaList location CDATA #REQUIRED>
+   <!ATTLIST cinemaList date CDATA #REQUIRED>
+   <!ELEMENT cinema(movieOn*)>
+   <!ATTLIST cinema name CDATA #REQUIRED>
+   <!ELEMENT movieOn(movieName,showTime,minPrice)>
+   <!ELEMENT movieName(#PCDATA)>
+   <!ELEMENT showTime(#PCDATA)>
+   <!ELEMENT minPrice(#PCDATA)>
+]>
+<cinemaList ranking="3" location="me" date="20/09/2023">
+  <cinema name="Hoyts Warrawong">	
+	<movieOn>
+	  <movieName>Teenage Mutant Ninja Turtles: Mutant Mayhem</movieName>
+	  <showTime>12:40pm</showTime>
+	  <minPrice>$24.50</minPrice>
+	</movieOn>
+	<movieOn>
+	  <movieName>The Equalizer 3</movieName>
+	  <showTime>7.30pm</showTime>
+	  <minPrice>$21.50</minPrice>
+	</movieOn>
+	<movieOn>
+	  <movieName>My Big Fat Greek Wedding 3</movieName>
+	  <showTime>10am</showTime>
+	  <minPrice>$17.50</minPrice>
+	</movieOn>
+  </cinema>
+
+  <cinema name="Event Cinemas Liverpool">
+	<movieOn>
+	  <movieName>Miss Shetty Mr Polishetty</movieName>
+	  <showTime>09:00m</showTime>
+	  <minPrice>$14.50</minPrice>
+	</movieOn>
+	<movieOn>
+	  <movieName>Meg 2: The TrenchM</movieName>
+	  <showTime>7.00pm</showTime>
+	  <minPrice>$21.00</minPrice>
+	</movieOn>
+  </cinema>
+
+  <cinema name="Event cinemas Shellharbour">
+	<movieOn>
+	  <movieName>Barbie</movieName>
+	  <showTime>6.30pm</showTime>
+	  <minPrice>$21</minPrice>
+	</movieOn>
+	<movieOn>
+	  <movieName>Oppenheimer</movieName>
+	  <showTime>7.15pm</showTime>
+	  <minPrice>$16</minPrice>
+	</movieOn>
+  </cinema>
+</cinemaList>

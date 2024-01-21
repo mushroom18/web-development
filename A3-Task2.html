@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>task 2</title>
+    
+    <style>
+      .textField{
+        transition-property: background-color;
+      }
+      .textField:focus{
+         background-color: pink;
+       }
+	   
+      div:hover{
+        transform: translate(50px,50px) skewX(var(--skewDeg));
+      }
+      
+      
+    </style>
+
+    <script>
+      function display_info(){
+        //get user input from text fields
+        var s_name = document.getElementById("name").value;
+        var s_number = document.getElementById("snumber").value;
+        var color = document.getElementById("font_colour").value;
+        var size = document.getElementById("font_size").value;
+
+        //change style and display
+        var student_info =document.getElementById("display");
+        student_info.style.color = color;
+        student_info.style.fontSize = size;
+        student_info.innerHTML = s_name + " " + s_number;
+
+        //get the last two digits of student number
+        var last2digits = Number(-s_number.slice(-2));
+      
+        student_info.style.setProperty('--skewDeg', `${last2digits}deg`);
+      }  
+    </script>
+  </head>
+  <body>
+    <h1>My info</h1>
+    <table>
+      <tr>
+        <td>Name:</td>
+        <td><input type="text" class="textField" id="name"/></td>
+      </tr>
+      <tr>
+        <td>Student number:</td>
+        <td><input type="text" class="textField" id="snumber"/></td>
+      </tr>
+      <tr>
+        <td>Colour:</td>
+        <td><input type="text" class="textField" id="font_colour"/></td>
+      </tr>
+      <tr>
+        <td>Font size:</td>
+        <td><input type="text" class="textField" id="font_size"/></td>
+      </tr>
+    </table>
+    <br/>
+    <button onclick="display_info()">Display</button>
+    <br/>
+    <div id="display"></div>  
+  </body>
+</html>
