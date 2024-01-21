@@ -1,0 +1,43 @@
+<?xml version = "1.0"?>
+<?xml-stylesheet type="text/xsl" href="styleQuestion1.xsl"?>
+<carServiceRepository station="Wollongong">
+  <carInfo>
+    <carPlate>CL-29-28</carPlate>
+	<model>Nissan X-Trail</model>
+	<year>2020</year>
+	<serviceCard>
+	  <record>
+	    <time>15/09/2021</time>
+		<distance>10000km</distance>
+	  </record>
+	  <record>
+	    <time>21/08/2022</time>
+		<distance>20000km</distance>
+	  </record>
+	  <record>
+	    <time>15/07/2023</time>
+		<distance>30000km</distance>
+	  </record>
+	</serviceCard>
+  </carInfo>
+  
+  <carInfo>
+    <carPlate>PYU-880</carPlate>
+	<model>BMW 330i</model>
+	<year>2017</year>
+	<serviceCard>
+	  <record>
+	    <time>23/04/2019</time>
+		<distance>10000km</distance>
+	  </record>
+	  <record>
+	    <time>28/06/2020</time>
+		<distance>25000km</distance>
+	  </record>
+	  <record>
+	    <time>01/08/2022</time>
+		<distance>40000km</distance>
+	  </record>
+	</serviceCard>
+  </carInfo>
+</carServiceRepository>
