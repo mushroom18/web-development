@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <title>A2-Task2</title>
+    
+    <style>
+      img{width:200px;height:200px;}
+    </style>
+
+    <script>
+      
+    var image_list =
+      [
+      "https://cc-prod.scene7.com/is/image/CCProdAuthor/sun-illustration_P3a_690x724?$pjpeg$&jpegSize=100&wid=599",
+      "https://img.freepik.com/free-vector/hand-drawn-spring-wallpaper_23-2148829855.jpg?w=826&t=st=1692861503~exp=1692862103~hmac=cca955aa17f7fafe48a0baafeec3a31553217143f20b6fff737936b9cd312007",
+      "https://img.freepik.com/premium-vector/cute-yellow-half-moon-sleeping-hat-with-pompom-night-sky-with-stars-sweet-baby-crescent-character-nightcap-childish-colored-vector-illustration-flat-cartoon-style_198278-13670.jpg?size=626&ext=jpg"
+     ];
+    
+    
+    //display images one by one from left to right  
+    var i = 0;	
+    function displayimage()
+    { //get image elements
+      var image_elements = document.querySelectorAll('img');
+
+      //start animation
+      var showimage = setInterval(display_next_image, 100);
+    
+      function display_next_image() 
+      { 
+        if (i < image_list.length)
+        {image_elements[i].src = image_list[i];
+         i = i + 1;}
+
+      //stop animation when all images are displayed
+        if (i == image_list.length) 
+         {clearInterval(showimage);}
+      }
+    } 
+      
+
+   // when mouse over the left image, swap it with the right image  
+    function swapimage1() 
+    {
+      var rightpicture = document.getElementById("rightimage");
+      var leftpicture = document.getElementById("leftimage");
+        
+      var temp = rightpicture.src;
+          rightpicture.src = leftpicture.src;
+          leftpicture.src = temp;
+    }
+      
+  // when mouse over the middle image, swap it with the right image  
+    function swapimage2() 
+    {
+      var rightpicture = document.getElementById("rightimage");
+      var middlepicture = document.getElementById("middleimage");
+        
+      var temp2 = rightpicture.src;
+          rightpicture.src = middlepicture.src;
+          middlepicture.src = temp2;
+    }
+    
+    </script>
+    
+  
+  </head>
+
+  <body onload="displayimage()">
+
+    <img onmouseover="swapimage1()" id="leftimage"  alt="a picture"/>
+    <img onmouseover="swapimage2()" id="middleimage"  alt="a picture"/>
+    <img id="rightimage"  alt="a picture"/>
+  
+  </body>
+
+</html>

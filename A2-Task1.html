@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <title> A2-Task1</title>  
+    <script>
+      
+      function random_number()
+        { //generate a four-digit random number
+          var r = Math.floor(Math.random()*9000+1000);
+          var four_digit_number = document.getElementById("display");
+          four_digit_number.innerHTML = r;
+          
+          //set the color to red
+          four_digit_number.style.color = "red";
+        }
+
+      function add_number()
+        { //get current elements
+          var current_value = document.getElementById("display").innerHTML;
+
+          //divide current elements into number part and emoji part
+          var number_part = parseInt(current_value);
+          var emoji_part = current_value.substring(number_part.toString().length);
+
+          //do the additon
+          var sum_number = number_part + 5;
+
+          //combine the number part and emoji part together and show the result
+          var result_element = document.getElementById("display");
+          result_element.innerHTML = sum_number + emoji_part;
+        }
+
+      
+      var color_list=["yellow", "green", "blue","red"];
+      function change_color()
+        {
+          var color_index = Math.floor(Math.random()*color_list.length);
+          var random_color = color_list[color_index];
+          var number_color = document.getElementById("display");
+          number_color.style.color = random_color;
+        }
+
+      
+      
+      var emoji_count = 0;
+      function add_emoji()
+        {
+          emoji_count = emoji_count + 1;
+
+          // get current elements
+          var current_element = document.getElementById("display").innerHTML;
+          
+          //divide current elements into number part and emoji part
+          var number_part = parseInt(current_element);
+          var emoji_part = current_element.substring(number_part.toString().length);
+          var emoji_result = document.getElementById("display");
+
+          //click odd times,display football
+          if(emoji_count %2 == 1) {emoji_str = "⚽";}
+          //click even times,display trophy
+          if(emoji_count %2 == 0) {emoji_str = "🏆";}
+
+          //combine the number part and emoji part together and show the result
+          emoji_result.innerHTML = number_part + emoji_part + emoji_str
+        }
+
+
+      function reset()
+        { //clear everything in the span field
+          var clear_everything = document.getElementById("display");
+          clear_everything.innerHTML = "";
+          //generate a new random number
+          random_number();
+          //reset emoji count
+          emoji_count = 0;
+        }
+
+      
+    </script>
+  </head>
+
+
+
+  <body onload="random_number()">
+    <button onclick="add_number()">Add 5</button>
+    <button onclick="change_color()">Change colour</button>
+    <button onclick="add_emoji()">Add emoji</button>
+    <button onclick="reset()">Reset</button>
+
+    <br/>
+    <span id="display"></span>
+  
+  </body>
+
+</html>
