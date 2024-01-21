@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>question3</title>
+	<script>
+	  
+	  var i = 0;
+	  var totalPrice = 0;
+	  
+	  function display(){
+	  //get product info
+	    var productName = document.getElementById("name").value;
+		var productPrice = document.getElementById("price").value;
+		var productDiscount = document.getElementById("discount").value;
+		
+	  //calculate current product price
+	    var currentPrice = Number(productPrice) * (100 - Number(productDiscount))/100
+		console.log(currentPrice)
+		
+	  // get the discount info
+	    var discountInfo = `${productName} - price $${productPrice}, after discount of ${productDiscount}%, the price is $${currentPrice}`;
+	    console.log(discountInfo)
+	
+	  //create a new list item to hold the info
+	    var li = document.createElement("li");
+		var discountText = document.createTextNode(discountInfo);
+		li.appendChild(discountText);
+		
+	  //add the new list item to the ordered list
+	    var discountOL = document.getElementById("discountList");
+		discountOL.appendChild(li);
+		
+	  //count total items
+	    i += 1;
+	    console.log(i);
+	  //count total discount price
+	    totalPrice = Number(totalPrice);
+	    discountNum = Number(productPrice) * Number(productDiscount) / 100
+	    totalPrice += discountNum;
+		totalPrice = totalPrice.toFixed(2); 
+		console.log(totalPrice);
+	  //display the overall discount info
+	    if (i==1){
+		  overallDis = `Overall discount for 1 product is $${totalPrice}` 
+		}else{
+		  overallDis = `Overall discount for ${i} products is $${totalPrice}`
+		}
+		
+		var overallInfo = document.getElementById("overall");
+		overallInfo.innerHTML = overallDis;
+	  
+	  } 
+	  
+	
+	</script>
+  </head>
+  <body>
+    <h1>Discount calculator</h1>
+	product:
+	<input type="text" id="name"/>
+	<br/><br/>
+	price $:
+	<input type="text" id="price"/>
+	<br/><br/>
+	discount %:
+	<input type="text" id="discount"/>
+	<br/><br/>
+	<button onclick="display()">calculate</button>
+	<br/><br/>
+	<ol id="discountList"></ol>
+	<p id="overall"></p>
+  </body>
+</html>
